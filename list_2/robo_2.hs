@@ -16,9 +16,9 @@ faces South (x:xs) | x == TurnLeft = faces East xs
 faces West (x:xs)  | x == TurnLeft = faces South xs 
                    | x == TurnRight = faces North xs
                    | otherwise = faces West xs
-faces East (x:xs)  | x == TurnLeft = faces West xs 
-                   | x == TurnRight = faces East xs
-                   | otherwise = faces North xs
+faces East (x:xs)  | x == TurnLeft = faces North xs 
+                   | x == TurnRight = faces South xs
+                   | otherwise = faces East xs
 
 main = do
        a <- getLine
