@@ -27,14 +27,13 @@ rldecode0 x = decode x 0
 -- Questão 2
 encode :: String -> Int -> String
 encode [] _ = []
-encode [y] z | z /= 0 = y : [toEnum (z+48)] 
+encode [y] z | z /= 0 = y : show z 
              | z == 0 = [y]
 encode (y:ys) z | y == head ys = encode ys (z+1)
                 | y /= head ys && z == 0 = y : encode ys 0
-                | y /= head ys && z /= 0 = y : toEnum (z + 48+1) : encode ys 0  
+                | y /= head ys && z /= 0 = y : toEnum (z + 48 + 1) : encode ys 0  
 
 rlencodeLetras :: String -> String
 rlencodeLetras [] = []
 rlencodeLetras x = encode x 0
-
 
